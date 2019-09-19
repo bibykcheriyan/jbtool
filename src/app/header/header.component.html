@@ -1,0 +1,46 @@
+<header class="jb-header">
+    <div class="d-flex">
+        <div class="mr-auto">
+            <a class="logo" [routerLink]="['dashboad']" [ngClass]="{ 'hide': istoolbarActive,'show': !istoolbarActive}">
+                JBTool
+            </a>
+            <a class="logo-mini" [routerLink]="['dashboad']" [ngClass]="{ 'hide': !istoolbarActive,'show': istoolbarActive}"><i
+                    class="fa fa-bell"></i> </a>
+            <span class="menubar" (click)="toogleLeftBar()"><i class="fa fa-align-justify"></i></span>
+        </div>
+        <div>
+            <div class="navbar-custom-menu">
+                <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <li class="nav-item messages">
+                        <a [routerLink]="['mail']" [routerLinkActive]="['active']">
+                            <i class="fa fa-envelope-open"></i>
+                            <span class="badge">4</span>
+                        </a>
+                    </li>
+                    <!-- Notifications: style can be found in dropdown.less -->
+                    <!-- <li class="nav-item notifications">
+                        <a href="#">
+                            <i class="fa fa-bell"></i>
+                            <span class="badge">10</span>
+                        </a>
+                    </li> -->
+                    <!-- Tasks: style can be found in dropdown.less -->
+                    <li class="nav-item task-notification">
+                        <a [routerLink]="['task']" [routerLinkActive]="['active']">
+                            <i class="fa fa-flag"></i>
+                            <span class="badge">9</span>
+                        </a>
+                    </li>
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="nav-item nav-link dropdown-toggle mr-md-2">
+                        <a [routerLink]="['profile/1']" [routerLinkActive]="['active']" class="user-image">
+                            <img src="assets/img/user2-160x160.jpg" class="rounded-circle" alt="User Image">
+                            <span class="hidden-xs">Alexander Pierce</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
