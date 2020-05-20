@@ -1,7 +1,16 @@
 <!-- header  -->
-<app-header (shareDataEvent) = "dashboard.sendData($event)"></app-header>
-<!-- content based on rooting -->
-<app-sidebar #dashboard></app-sidebar>
-<router-outlet></router-outlet>
+<header class="jb-header">
+    <app-header (shareDataEvent) = "dashboard.sendData($event)"></app-header>
+</header>
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-2 sidebar">
+        <!-- content based on rooting -->
+        <app-sidebar #dashboard></app-sidebar>
+        </aside>
+        <section class="col-10  main-content"><router-outlet></router-outlet></section>
+    </div>
+</div>
+
 <!-- footer -->
-<app-footer></app-footer>
+<footer class="footer"><app-footer></app-footer></footer>

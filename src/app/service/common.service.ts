@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/internal/operators/map';
 
 
 @Injectable({
@@ -21,14 +22,17 @@ export class CommonService {
     sessionStorage.removeItem('currentUser');
   }
 
-  login(username: string, password: string){    
-        localStorage.setItem('currentUser', JSON.stringify({"name":"biby"}));
-        //return true;
-        return this
-            .http
-            .get("api/characters");
-       // return this.http.get("/api/getuser").map(res => res.json());
+  login(uname: string, pw: string){   
+
+       return this.http.post<any>(`http://localhost/jbtools/cfc/public.cfc?method=getUserDetails`, { uname, pw })
+            .pipe(map(user => {
+                 localStorage.setItem('currentUser', JSON.stringify(user));
+                console.log(user)
+                return user;
+            }));
     
   }
+
+  
 
 }
