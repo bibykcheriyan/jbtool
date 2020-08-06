@@ -7,14 +7,14 @@ import { CommonService } from "../service/common.service";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Output() shareDataEvent = new EventEmitter();
-  istoolbarActive: boolean;
-  constructor(private data: CommonService) { }
+  // @Output() shareDataEvent = new EventEmitter();
+  // istoolbarActive: boolean;
+  // constructor(private data: CommonService) { }
   ngOnInit() {
   }
   toogleLeftBar(){
-    this.istoolbarActive = !this.istoolbarActive;
-    this.shareDataEvent.emit(this.istoolbarActive);
+    // this.istoolbarActive = !this.istoolbarActive;
+    // this.shareDataEvent.emit(this.istoolbarActive);
   }
 
 }

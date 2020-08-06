@@ -58,8 +58,13 @@ export class LoginComponent implements OnInit {
     this.CommonService.login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
-        data => {
-          this.router.navigate([this.returnUrl]);
+        data => {         
+          if(data.RECORD === 1){
+            let userObj = data.DATASET;
+            sessionStorage.setItem('currentUser',userObj);
+          }
+
+          this.router.navigate(['dashboad']);
         },
         error => {
          alert(error);

@@ -23,11 +23,10 @@ export class CommonService {
   }
 
   login(uname: string, pw: string){   
-
-       return this.http.post<any>(`http://localhost/jbtools/cfc/public.cfc?method=getUserDetails`, { uname, pw })
+    let loginUrl = "http://localhost/server/cfc/public.cfc?method=getUserDetails&uname="+uname+"&pw="+pw;
+       return this.http.post<any>(loginUrl,{})
             .pipe(map(user => {
-                 localStorage.setItem('currentUser', JSON.stringify(user));
-                console.log(user)
+                 localStorage.setItem('currentUser', JSON.stringify(user));                
                 return user;
             }));
     
